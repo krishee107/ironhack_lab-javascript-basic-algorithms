@@ -17,25 +17,25 @@ const conditionals = (n1, n2) =>{
 }
 
 conditionals(hacker1, hacker2);
+console.log("__________________________");
 
 // Iteration 3: Loops
 const loops = () =>{
     let newHacker = hacker1.toUpperCase().split("");
+    let newArr = [];
     for (let i = 0; i < newHacker.length; i++) {
-        console.log(newHacker[i]);
+        newArr.push(newHacker[i]);
+        newArr.push(" ");
     }
-
-    console.log("___________--------------___________");
+    let res = newArr.join("");
+    console.log(res);
 
     let newHacker2 = hacker2.split("").reverse().join("");
-    for (let i = 0; i < newHacker2.length; i++) {
-        console.log(newHacker2[i]);
-    }
-
-    console.log("___________--------------___________");
+    console.log(newHacker2)
 }
 
 loops();
+console.log("__________________________");
 
 const ordenAlfabetico = () =>{
     if(posAlfabeto(hacker1.charAt(0)) < posAlfabeto(hacker2.charAt(0))) console.log(`The driver's name goes first.`);
@@ -45,18 +45,22 @@ const ordenAlfabetico = () =>{
 
 const posAlfabeto = (letter) => {
     let abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
-    let pos;
+    let pos=null;
 
     for(let i = 0; i<=abc.length; i++)
         if(abc[i] == letter.toLowerCase()){
             pos = i+1;
             break;
         }
-    return pos;
+    if(pos != null)
+        return pos;
+    else
+        console.log("Error");
 }
 
 
-//ordenAlfabetico();
+ordenAlfabetico();
+console.log("__________________________");
 
 /* Bonus 1 */
 let lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu enim tortor. Nulla et lorem urna. Duis vel metus pellentesque, pretium est nec, convallis eros. Sed tristique eu sem et auctor. Sed euismod enim elementum orci convallis, in aliquet nisl volutpat. Nulla ut lectus non leo venenatis interdum. Nam id felis turpis. Suspendisse rhoncus est ex, sed ornare velit posuere et. Cras quis eros ac nisl posuere laoreet non eu tellus. Fusce sodales orci ac velit lacinia vehicula. Sed finibus tincidunt justo in mattis.
@@ -67,8 +71,21 @@ Fusce non erat vel massa consectetur vehicula eget eu velit. Donec a diam nec ni
 
 const countWords = () =>  lorem.split(' ').length;
 console.log(countWords());
+console.log("__________________________");
 
 /*Bonus 2*/
-let phraseToCheck = "step on no pets";
-const isPalindromo = (str) => str.split("").reverse().join("") === str
+let phraseToCheck = "olo";
+const isPalindromo = (str) => {
+    let newStr1 = str.split("").reverse().join("");
+    let newStr2 = str.split("").join("");
+
+    for (let i = 0; i < newStr1.length; i++) {
+        if(newStr1[i] != newStr2[i]){
+            console.log("No son palindromos");
+            return false;
+        }
+    }
+    
+    return true;
+}   
 console.log(isPalindromo(phraseToCheck));
