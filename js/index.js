@@ -1,7 +1,7 @@
 // Iteration 1: Names and Input
 console.log("I'm ready!");
 let hacker1 = "Cristina";
-let hacker2 = "Ana";
+let hacker2 = "Cristinb";
 console.log(`The driver's name is ${hacker1}`);
 console.log(`The navigator's name is ${hacker2}`);
 
@@ -38,9 +38,24 @@ loops();
 console.log("__________________________");
 
 const ordenAlfabetico = () =>{
+    hacker1 = hacker1.toLowerCase();
+    hacker2 = hacker2.toLowerCase();
+    //Si el primero va primero
     if(posAlfabeto(hacker1.charAt(0)) < posAlfabeto(hacker2.charAt(0))) console.log(`The driver's name goes first.`);
+    //Si el segundo va primero
     else if(posAlfabeto(hacker1.charAt(0)) > posAlfabeto(hacker2.charAt(0))) console.log(`Yo, the navigator goes first definitely.`);
-    else console.log(`What?! You both have the same name?`);
+    //Si empiezan igual
+    else if(posAlfabeto(hacker1.charAt(0)) == posAlfabeto(hacker2.charAt(0))){
+        let newHacker1 = hacker1.split("");
+        let newHacker2 = hacker2.split("");
+        for (let i = 0; i < newHacker1.length; i++) {
+            if(posAlfabeto(newHacker1[i]) != posAlfabeto(newHacker2[i]) )
+                if(posAlfabeto(newHacker1[i]) < posAlfabeto(newHacker2[i])) console.log(`The driver's name goes first.`);
+                else console.log(`Yo, the navigator goes first definitely.`);
+        }
+    }
+    else    
+        console.log("Error")
 }
 
 const posAlfabeto = (letter) => {
@@ -48,10 +63,11 @@ const posAlfabeto = (letter) => {
     let pos=null;
 
     for(let i = 0; i<=abc.length; i++)
-        if(abc[i] == letter.toLowerCase()){
+        if(abc[i] == letter){
             pos = i+1;
             break;
         }
+        
     if(pos != null)
         return pos;
     else
