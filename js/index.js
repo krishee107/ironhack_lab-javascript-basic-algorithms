@@ -36,46 +36,27 @@ const loops = () =>{
 
 loops();
 console.log("__________________________");
+let limit;
+if(hacker1.length > hacker2.length)
+    limit = hacker1.length;
+else
+    limit = hacker2.length;
 
-const ordenAlfabetico = () =>{
-    hacker1 = hacker1.toLowerCase();
-    hacker2 = hacker2.toLowerCase();
-    //Si el primero va primero
-    if(posAlfabeto(hacker1.charAt(0)) < posAlfabeto(hacker2.charAt(0))) console.log(`The driver's name goes first.`);
-    //Si el segundo va primero
-    else if(posAlfabeto(hacker1.charAt(0)) > posAlfabeto(hacker2.charAt(0))) console.log(`Yo, the navigator goes first definitely.`);
-    //Si empiezan igual
-    else if(posAlfabeto(hacker1.charAt(0)) == posAlfabeto(hacker2.charAt(0))){
-        let newHacker1 = hacker1.split("");
-        let newHacker2 = hacker2.split("");
-        for (let i = 0; i < newHacker1.length; i++) {
-            if(posAlfabeto(newHacker1[i]) != posAlfabeto(newHacker2[i]) )
-                if(posAlfabeto(newHacker1[i]) < posAlfabeto(newHacker2[i])) console.log(`The driver's name goes first.`);
-                else console.log(`Yo, the navigator goes first definitely.`);
-        }
-    }
-    else    
-        console.log("Error")
+let same = true;
+for (let i = 0; i < limit; i++) {
+   if(hacker1.charAt(i) > hacker2.charAt(1)){
+    console.log(`Yo, the navigator goes first definitely.`);
+    same=false;
+    break;
+   }
+   if(hacker1.charAt(i) > hacker2.charAt(1)){
+    console.log(`The driver's name goes first.`);
+    same=false;
+    break;
+   }
 }
+if(same) console.log(`Yo, the navigator goes first definitely.`);
 
-const posAlfabeto = (letter) => {
-    let abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
-    let pos=null;
-
-    for(let i = 0; i<=abc.length; i++)
-        if(abc[i] == letter){
-            pos = i+1;
-            break;
-        }
-        
-    if(pos != null)
-        return pos;
-    else
-        console.log("Error");
-}
-
-
-ordenAlfabetico();
 console.log("__________________________");
 
 /* Bonus 1 */
