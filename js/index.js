@@ -1,7 +1,7 @@
 // Iteration 1: Names and Input
 console.log("I'm ready!");
-let hacker1 = "Cristina";
-let hacker2 = "Cristinb";
+let hacker1 = "AAs";
+let hacker2 = "AAc";
 console.log(`The driver's name is ${hacker1}`);
 console.log(`The navigator's name is ${hacker2}`);
 
@@ -44,12 +44,12 @@ else
 
 let same = true;
 for (let i = 0; i < limit; i++) {
-   if(hacker1.charAt(i) > hacker2.charAt(1)){
+   if(hacker1.charAt(i) > hacker2.charAt(i)){
     console.log(`Yo, the navigator goes first definitely.`);
     same=false;
     break;
    }
-   if(hacker1.charAt(i) > hacker2.charAt(1)){
+   if(hacker1.charAt(i) < hacker2.charAt(i)){
     console.log(`The driver's name goes first.`);
     same=false;
     break;
